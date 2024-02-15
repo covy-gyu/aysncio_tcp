@@ -4,18 +4,21 @@ import asyncio
 import time
 
 
-async def say(msg, w_time):
+async def say_after(w_time, msg):
     await asyncio.sleep(w_time)
     print(msg)
 
 
-loop = asyncio.get_event_loop()
-print(f"시작 {time.strftime('%X')}")
-task1 = loop.create_task(say("첫 인사", 2))
-task2 = loop.create_task(say("둘 인사", 3))
+async def main():
+    task1 = asyncio.create_task(say_after(1, "Hello"))
+    task2 = asyncio.create_task(say_after(2, "World"))
 
-loop.run_until_complete(task1)
-loop.run_until_complete(task2)
-print(f"끝 {time.strftime('%X')}")
+    print(f"시작 {time.strftime('%X')}")
 
-loop.close()
+    await task1
+    await task2
+
+    print(f"끝 {time.strftime('%X')}")
+
+
+asyncio.run(main())
