@@ -2,7 +2,9 @@ import asyncio
 
 
 async def tcp_echo_client(message, loop):
-    reader, writer = await asyncio.open_connection("127.0.0.1", 2500, loop=loop)
+    reader, writer = await asyncio.open_connection(
+        "127.0.0.1", 2500, loop=loop
+    )  # d:\code\Python\aysncio_tcp\stream_echo\asyncio_tcp_echo_client.py:in Python 3.10.:5: DeprecationWarning: The loop argument is deprecated since Pyto, loop=loop)hon 3.8, and scheduled for removal in Python 3.10.
 
     print("Send: %r" % message)  # 연결이 되면 여기서 재개된다
     writer.write(message.encode())  # 코루틴이 아니므로 메시지 전송이 끝나야 반환된다
