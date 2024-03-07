@@ -18,7 +18,7 @@ async def echo_handler(reader, writer):  # 데이터 처리 코루틴
 loop = asyncio.get_event_loop()  # 현재 이벤트 루프를 가져온다
 server_coro = asyncio.start_server(
     echo_handler, "localhost", 2500, loop=loop
-)  # echo)handler에게 reader, writer를 넘겨준다
+)  # echo_handler에게 reader, writer를 넘겨준다
 remote = loop.run_until_complete(
     server_coro
 )  # 클라이언트의 연결 요청을 계속 서비스한다

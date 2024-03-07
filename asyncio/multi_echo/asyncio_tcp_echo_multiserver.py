@@ -11,9 +11,9 @@ async def echo_handler(reader, writer):
         addr = writer.get_extra_info("peername")
         print("Received %r from %r" % (message, addr))
 
-        print("Send: %r" % message)
-        writer.write(data)
-        await writer.drain()
+        # print("Send: %r" % message)
+        # writer.write(data)
+        # await writer.drain()
 
 
 loop = asyncio.get_event_loop()

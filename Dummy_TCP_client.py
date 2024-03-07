@@ -29,7 +29,7 @@ while True:
         continue
 
     try:  # 데이터 전송
-        sock.send(msg.encode())  # 메시지 전송
+        sock.sendall(msg.encode())  # 메시지 전송
 
     except:  # 연결이 종료됨
         print("연결이 종료되었습니다")
